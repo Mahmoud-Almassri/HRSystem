@@ -1,0 +1,30 @@
+﻿@model  HR_System.Models.DepartmentVM
+@{
+    ViewBag.Title = "DepartmentList";
+    Layout = "~/Views/Shared/MainView.cshtml";
+}
+
+
+@section body{
+    <h2>DepartmentList</h2>
+    <table>
+        <tr>
+            <td>
+                @Html.Label("Name")
+            </td>
+            <td><input type="submit" name="Search" value="Search" /></td>
+        
+        <tr>
+            @{
+            var grid = new WebGrid(Model._Department, canPage: true);
+            }
+            @grid.GetHtml(columns:grid.Columns(
+        grid.Column("Name","Name"),
+         grid.Column("Description","Description")  ))
+        </tr>
+    </table>
+
+
+
+}
+

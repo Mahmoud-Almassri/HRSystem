@@ -1,0 +1,115 @@
+﻿@model HR_System.Models.EmployeeVM
+           @using HR_System.Models
+@{
+    ViewBag.Title = "Employee";
+    Layout = "~/Views/Shared/MainView.cshtml";
+}
+
+@section body{
+    <form action="Save" method="post">
+    <table>
+        <tr>
+            <td>
+                @Html.Label("First Name")
+            </td>
+            <td>
+                @Html.TextBoxFor(a => a.Emp.FirstName)
+            </td>
+
+            <td>
+                @Html.Label("Last Name")
+            </td>
+            <td>
+                @Html.TextBoxFor(a => a.Emp.LastName)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.Label("Phone")
+            </td>
+            <td>
+                @Html.TextBoxFor(a => a.Emp.Phone)
+            </td>
+
+            <td>
+                @Html.Label("Gender")
+            </td>
+            <td>
+                @Html.DropDownListFor(a => a.Emp.Gender, new SelectList(Enum.GetValues(typeof(LookUp.Gender))))
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.Label("Country")
+            </td>
+            <td>
+                @Html.DropDownListFor(a => a.Emp.Country, new SelectList(Model._Country, "ID", "Name"))
+            </td>
+
+            <td>
+                @Html.Label("City")
+            </td>
+            <td>
+                @Html.DropDownListFor(a => a.Emp.City, new SelectList(Model._City, "ID", "Name"))
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.Label("Address")
+            </td>
+            <td>
+                @Html.TextBoxFor(a => a.Emp.Address)
+            </td>
+
+            <td>
+                @Html.Label("Email")
+            </td>
+            <td>
+                @Html.TextBoxFor(a => a.Emp.Email)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.Label("Salary")
+            </td>
+            <td>
+                @Html.TextBoxFor(a => a.Emp.Salary)
+            </td>
+
+            <td>
+                @Html.Label("Expected Salary")
+            </td>
+            <td>
+                @Html.TextBoxFor(a => a.Emp.ExbectedSalary)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.Label("Hire Date")
+            </td>
+            <td>
+                @Html.TextBoxFor(a => a.Emp.HireDate)
+            </td>
+            <td></td>
+
+            <td>
+                <input type="submit" name="btnSave " value="Save" />
+            </td>
+        </tr>
+
+
+    </table>
+</form>
+
+
+
+
+    
+}
+
+
